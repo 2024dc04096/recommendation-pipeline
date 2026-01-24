@@ -14,10 +14,11 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 def ingest_master_data():
     """Syncs master data from simulator source to raw zone."""
-    # Ensure full directory structure exists
-    subdirs = ["landing", "transactions", "clickstream", "landing/archive"]
+    # Ensure full directory structure exists (using consolidated archive)
+    subdirs = ["landing", "transactions", "clickstream", "archive/transactions", "archive/landing"]
     for subdir in subdirs:
         (TARGET_DIR / subdir).mkdir(parents=True, exist_ok=True)
+
     
     for src_name, dest_name in MASTER_FILES.items():
         src_path = SOURCE_DIR / src_name

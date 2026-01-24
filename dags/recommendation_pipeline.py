@@ -58,10 +58,10 @@ with DAG(
         cwd=PROJECT_ROOT
     )
 
-    # Task 2b: Ingest API Metadata
+    # Task 2b: Ingest Product External Metadata
     ingest_api = BashOperator(
-        task_id='ingest_api_metadata',
-        bash_command=f'{PYTHON_BIN} data_ingestion/api_ingestion.py',
+        task_id='pull_product_external_metadata',
+        bash_command=f'{PYTHON_BIN} data_ingestion/pull_product_external_metadata.py',
         cwd=PROJECT_ROOT
     )
 

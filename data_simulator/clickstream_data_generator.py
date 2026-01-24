@@ -5,6 +5,8 @@ import time
 import uuid
 import numpy as np
 import pandas as pd
+import argparse
+from pathlib import Path
 from datetime import datetime, timedelta
 from kafka import KafkaProducer
 
@@ -218,7 +220,7 @@ if __name__ == "__main__":
                 args.skip_kafka = True
 
         # Load products
-        products_df = pd.read_csv("recomart_product_catalog.csv")
+        products_df = pd.read_csv(BASE_DIR / "recomart_product_catalog.csv")
         if "price" not in products_df.columns and "base_price" in products_df.columns:
             products_df = products_df.rename(columns={"base_price": "price"})
         
@@ -230,7 +232,7 @@ if __name__ == "__main__":
         products = products_df.to_dict("records")
         
         # Load profiles
-        profiles_df = pd.read_csv("recomart_user_profiles.csv")
+        profiles_df = pd.read_csv(BASE_DIR / "recomart_user_profiles.csv")
         # Parse categories back to list
         profiles_df["preferred_categories"] = profiles_df["preferred_categories"].apply(lambda x: str(x).split("|"))
         
@@ -251,6 +253,8 @@ if __name__ == "__main__":
         print("Please ensure raw data CSVs and generated profiles exist.")
     finally:
         print("Flushing messages...")
-        producer.flush()
-        producer.close()
+        if producer:
+            producer.flush()
+            producer.close()
         print("Done.")
+

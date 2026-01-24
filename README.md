@@ -34,7 +34,7 @@ Launch the data simulators and the persistent stream consumer. **Open separate t
 
 - **Terminal A: Mock API (Product Stats)**
   ```bash
-  python data_simulator/mock_api.py
+  python data_simulator/product_external_metadata_server.py
   ```
 - **Terminal B: Clickstream Simulator (Kafka Events)**
   ```bash
@@ -42,7 +42,7 @@ Launch the data simulators and the persistent stream consumer. **Open separate t
   ```
 - **Terminal C: Stream Consumer**
   ```bash
-  python data_ingestion/kafka_consumer.py
+  python data_ingestion/clickstream_consumer.py
   ```
 
 ### 4. Run the Data Pipeline
@@ -57,7 +57,7 @@ Run these in order to sync master data, ingest additions, validate, and train:
 python data_ingestion/ingest_master_data.py
 
 # 2. Ingest API Metadata & Process Transaction Landing Zone
-python data_ingestion/api_ingestion.py
+python data_ingestion/pull_product_external_metadata.py
 python data_ingestion/ingest_transactions.py
 
 # 3. Validate Data Quality
