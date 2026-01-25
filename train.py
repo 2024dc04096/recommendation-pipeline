@@ -63,10 +63,11 @@ def train_collaborative_filtering(interactions):
         mlflow.log_metric("rmse", rmse)
         print(f"SVD RMSE: {rmse:.4f}")
 
-        # Calculate Ranking Metrics (Precision@10)
+        # Calculate Ranking Metrics (Precision@10 and Recall@10)
         # We sample 100 users for speed in this demo
         sample_users = random.sample(range(X.shape[0]), min(100, X.shape[0]))
         precisions = []
+        recalls = []
         
         for u_idx in sample_users:
             actual_items = np.where(X[u_idx, :] > 5)[0] # Threshold for 'actual' interest
@@ -76,12 +77,23 @@ def train_collaborative_filtering(interactions):
             pred_scores = reconstructed[u_idx, :]
             top_k_indices = np.argsort(pred_scores)[::-1][:10]
             
-            p_at_k = len(set(actual_items).intersection(set(top_k_indices))) / 10.0
+            # Intersection
+            hits = len(set(actual_items).intersection(set(top_k_indices)))
+            
+            p_at_k = hits / 10.0
+            r_at_k = hits / len(actual_items)
+            
             precisions.append(p_at_k)
+            recalls.append(r_at_k)
             
         avg_p_at_10 = np.mean(precisions) if precisions else 0
+        avg_r_at_10 = np.mean(recalls) if recalls else 0
+        
         mlflow.log_metric("precision_at_10", avg_p_at_10)
+        mlflow.log_metric("recall_at_10", avg_r_at_10)
+        
         print(f"Avg Precision@10: {avg_p_at_10:.4f}")
+        print(f"Avg Recall@10: {avg_r_at_10:.4f}")
 
         # Save artifacts
         joblib.dump(svd, MODEL_STORE / "svd_model.pkl")

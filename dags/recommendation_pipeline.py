@@ -32,7 +32,7 @@ with DAG(
     'recommendation_system_pipeline',
     default_args=default_args,
     description='End-to-end recommendation system pipeline',
-    schedule=timedelta(days=1),
+    schedule=timedelta(minutes=5),
     start_date=datetime(2024, 1, 1),
     catchup=False,
     tags=['recommendation', 'mlops'],
@@ -46,7 +46,7 @@ with DAG(
             python -m venv {VENV_PATH}
         fi
         {PYTHON_BIN} -m pip install --upgrade pip
-        {PYTHON_BIN} -m pip install mlflow scikit-learn pandas kafka-python requests fpdf2
+        {PYTHON_BIN} -m pip install mlflow scikit-learn pandas kafka-python requests fpdf2 seaborn matplotlib numpy joblib
         ''',
         cwd=PROJECT_ROOT
     )
@@ -79,7 +79,7 @@ with DAG(
         cwd=PROJECT_ROOT
     )
 
-    # Task 4: Data Transformation
+    # Task 4: Data Transformation (Includes Cleaning & EDA)
     transform_data = BashOperator(
         task_id='transform_data',
         bash_command=f'{PYTHON_BIN} transform.py',
@@ -102,3 +102,5 @@ with DAG(
 
     # Task Dependencies
     setup_env >> [ingest_master, ingest_api, ingest_txns] >> validate_data >> transform_data >> build_features >> train_model
+
+

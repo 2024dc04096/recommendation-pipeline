@@ -1,4 +1,4 @@
-
+from pathlib import Path
 import pandas as pd
 import random
 import ast
@@ -6,9 +6,11 @@ import ast
 # ----------------------------------
 # CONFIG
 # ----------------------------------
-INPUT_CUSTOMERS_FILE = "recomart_master_customers.csv"
-INPUT_PRODUCTS_FILE = "recomart_product_catalog.csv"
-OUTPUT_PROFILES_FILE = "recomart_user_profiles.csv"
+BASE_DIR = Path(__file__).parent
+INPUT_CUSTOMERS_FILE = BASE_DIR / "recomart_master_customers.csv"
+INPUT_PRODUCTS_FILE = BASE_DIR / "recomart_product_catalog.csv"
+OUTPUT_PROFILES_FILE = BASE_DIR / "recomart_user_profiles.csv"
+
 
 # ----------------------------------
 # PROFILE BUILDER

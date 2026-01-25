@@ -3,10 +3,9 @@ __pycache__/
 *.pyc
 # Legacy & Unused
 airflow_env/
-D:*/
 analytics.py
 check_kafka.py
-raw_zone/recomart_raw_transactions_dec_2025.csv
+raw_zone/
 practice.ipynb
 TODO.md
 recomart_data_quality_report.pdf
@@ -15,3 +14,9 @@ recomart_data_quality_report.pdf
 mlruns/
 mlflow.db
 model_store/inference_logs.db
+
+raw_zone/transactions/*
+raw_zone/clickstream/*
+raw_zone/external_metadata.csv
+raw_zone/recomart_product_catalog.csv
+raw_zone/recomart_raw_customers.csv

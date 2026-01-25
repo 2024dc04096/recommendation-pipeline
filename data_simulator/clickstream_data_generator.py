@@ -17,9 +17,11 @@ KAFKA_BROKER = os.environ.get("KAFKA_BROKER", "localhost:9092")
 TOPIC = "reco_clickstream"
 
 # Robust Path Resolution
-BASE_DIR = Path(__file__).parent.parent
-TRANSACTIONS_LANDING = BASE_DIR / "raw_zone" / "landing"
+BASE_DIR = Path(__file__).parent
+PROJECT_ROOT = BASE_DIR.parent
+TRANSACTIONS_LANDING = PROJECT_ROOT / "raw_zone" / "landing"
 TRANSACTIONS_LANDING.mkdir(parents=True, exist_ok=True)
+
 
 EVENT_STRENGTH = {
     "view": 1,

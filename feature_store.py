@@ -47,21 +47,16 @@ def build_feature_store():
     interactions.to_sql("interactions", conn, if_exists="replace", index=False)
     
     # 'product_metadata' is core for Content-Based Filtering
-    # We use the full catalog as the base to ensure metadata is never "missing"
-    catalog_path = Path("raw_zone/recomart_product_catalog.csv")
-    if catalog_path.exists():
-        catalog = pd.read_csv(catalog_path)
-        # Pull calculated features from df (transactions) if available
-        # product_price, sentiment_score, popularity_index are in 'df' (transactions_enriched)
-        # We join them into the catalog
-        metadata_cols = ['product_id', 'product_price', 'sentiment_score', 'popularity_index']
-        # Drop duplicates in df to get per-product values
-        df_features = df[metadata_cols].drop_duplicates('product_id')
-        
-        product_features = pd.merge(catalog, df_features, on='product_id', how='left')
-        
-        # Fill missing values from transactions (if any)
-        # Actually catalog likely already has some of these, but we prioritize the enriched ones
+    # We use the cleaned catalog as the base to ensure metadata is already enriched
+    clean_catalog_path = Path("data/processed/clean_product_catalog.csv")
+    if clean_catalog_path.exists():
+        product_features = pd.read_csv(clean_catalog_path)
+        # Pull any extra calculated features from df (transactions) if needed
+        # (Though clean_product_catalog should already have popularity_index now)
+        if 'sentiment_score' not in product_features.columns and 'sentiment_score' in df.columns:
+            sentiment_df = df[['product_id', 'sentiment_score']].drop_duplicates('product_id')
+            product_features = pd.merge(product_features, sentiment_df, on='product_id', how='left')
+            
         product_features.to_sql("product_metadata", conn, if_exists="replace", index=False)
     else:
         # Fallback to enriched set only

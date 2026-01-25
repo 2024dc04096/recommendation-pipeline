@@ -1,31 +1,31 @@
 customer_id,age,gender,preferred_categories,base_purchase_prob,trend_affinity
-CUST001,54,O,Cleaning & Laundry|Oral Care,0.03,1.25
-CUST002,50,F,Bath & Body|Cleaning & Laundry,0.07,1.15
-CUST003,31,O,Dairy & Eggs,0.07,0.91
-CUST004,41,M,Tea & Coffee|Cleaning & Laundry|Bath & Body,0.1,0.87
-CUST005,41,M,Bath & Body,0.09,0.91
-CUST006,52,F,Edible Oils & Ghee|Snacks & Biscuits,0.1,1.19
-CUST007,51,M,Oral Care|Bath & Body,0.05,1.46
-CUST008,62,F,Cold Drinks & Juices,0.11,1.46
-CUST009,26,M,"Edible Oils & Ghee|Atta, Rice & Dal|Cold Drinks & Juices",0.04,1.11
-CUST010,57,M,Chocolates & Sweets|Cold Drinks & Juices|Snacks & Biscuits,0.04,0.89
-CUST011,41,M,Cleaning & Laundry,0.03,0.87
-CUST012,59,O,Edible Oils & Ghee|Snacks & Biscuits|Dairy & Eggs,0.07,1.07
-CUST013,43,O,Cold Drinks & Juices|Tea & Coffee,0.09,0.89
-CUST014,46,O,Chocolates & Sweets|Kitchen Essentials,0.04,0.95
-CUST015,22,M,Bath & Body|Snacks & Biscuits,0.08,1.46
-CUST016,60,O,"Snacks & Biscuits|Atta, Rice & Dal|Cold Drinks & Juices",0.09,1.36
-CUST017,53,M,Bath & Body,0.04,0.93
-CUST018,31,O,"Edible Oils & Ghee|Atta, Rice & Dal",0.07,1.45
-CUST019,45,O,Chocolates & Sweets|Bath & Body,0.07,1.2
-CUST020,49,M,Bath & Body|Chocolates & Sweets,0.08,1.07
-CUST021,47,F,Oral Care,0.06,1.42
-CUST022,54,O,Cold Drinks & Juices|Edible Oils & Ghee,0.08,1.13
-CUST023,58,M,Kitchen Essentials|Cleaning & Laundry|Snacks & Biscuits,0.09,0.96
-CUST024,33,O,Snacks & Biscuits,0.03,1.22
-CUST025,30,O,Fruits & Vegetables,0.03,0.93
-CUST026,34,F,Fruits & Vegetables|Snacks & Biscuits,0.06,0.9
-CUST027,38,F,Bath & Body,0.11,1.25
-CUST028,19,M,Cold Drinks & Juices|Snacks & Biscuits,0.11,1.17
-CUST029,38,M,Tea & Coffee|Bath & Body,0.09,1.46
-CUST030,23,M,Bath & Body|Edible Oils & Ghee,0.02,0.97
+CUST001,54,O,Oral Care|Chocolates & Sweets,0.09,0.89
+CUST002,50,F,"Atta, Rice & Dal",0.05,1.32
+CUST003,31,O,Dairy & Eggs,0.04,0.85
+CUST004,41,M,Snacks & Biscuits,0.08,1.0
+CUST005,41,M,Edible Oils & Ghee|Dairy & Eggs|Chocolates & Sweets,0.11,0.92
+CUST006,52,F,Bath & Body|Tea & Coffee|Dairy & Eggs,0.11,0.94
+CUST007,51,M,"Atta, Rice & Dal|Fruits & Vegetables",0.03,0.96
+CUST008,62,F,Snacks & Biscuits,0.12,1.11
+CUST009,26,M,Bath & Body|Fruits & Vegetables,0.05,1.17
+CUST010,57,M,"Cold Drinks & Juices|Atta, Rice & Dal",0.07,1.17
+CUST011,41,M,Cleaning & Laundry|Cold Drinks & Juices|Kitchen Essentials,0.03,1.21
+CUST012,59,O,Dairy & Eggs,0.07,0.83
+CUST013,43,O,"Chocolates & Sweets|Fruits & Vegetables|Atta, Rice & Dal",0.1,1.47
+CUST014,46,O,Edible Oils & Ghee|Oral Care|Tea & Coffee,0.07,0.95
+CUST015,22,M,Snacks & Biscuits,0.11,0.8
+CUST016,60,O,Tea & Coffee|Bath & Body|Snacks & Biscuits,0.08,0.98
+CUST017,53,M,Tea & Coffee|Kitchen Essentials|Bath & Body,0.02,1.23
+CUST018,31,O,Cold Drinks & Juices,0.08,0.84
+CUST019,45,O,Cleaning & Laundry|Fruits & Vegetables|Dairy & Eggs,0.07,1.04
+CUST020,49,M,Fruits & Vegetables,0.08,0.98
+CUST021,47,F,Chocolates & Sweets,0.09,1.38
+CUST022,54,O,"Atta, Rice & Dal|Cold Drinks & Juices",0.03,0.95
+CUST023,58,M,Cleaning & Laundry,0.06,1.09
+CUST024,33,O,Chocolates & Sweets,0.07,1.41
+CUST025,30,O,"Atta, Rice & Dal",0.06,1.3
+CUST026,34,F,Edible Oils & Ghee|Fruits & Vegetables|Dairy & Eggs,0.1,1.05
+CUST027,38,F,Kitchen Essentials|Chocolates & Sweets|Cleaning & Laundry,0.03,1.1
+CUST028,19,M,"Atta, Rice & Dal|Edible Oils & Ghee",0.12,1.34
+CUST029,38,M,Tea & Coffee,0.1,1.09
+CUST030,23,M,"Atta, Rice & Dal",0.05,0.93
